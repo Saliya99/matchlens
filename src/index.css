@@ -1,0 +1,62 @@
+@import "tailwindcss";
+
+@theme {
+  --font-display: "Outfit", system-ui, sans-serif;
+  --font-body: "Source Sans 3", system-ui, sans-serif;
+  --color-ink: #0b1f33;
+  --color-ink-soft: #1a3348;
+  --color-slate: #4a6274;
+  --color-mist: #e8eef2;
+  --color-paper: #f7fafb;
+  --color-teal: #0d9488;
+  --color-teal-bright: #14b8a6;
+  --color-amber: #f59e0b;
+  --color-rose: #e11d48;
+  --color-ok: #059669;
+}
+
+@layer base {
+  html {
+    font-family: var(--font-body);
+    color: var(--color-ink);
+    background: var(--color-paper);
+  }
+
+  body {
+    margin: 0;
+    min-height: 100vh;
+    background:
+      radial-gradient(ellipse 80% 50% at 10% -10%, rgba(20, 184, 166, 0.12), transparent),
+      radial-gradient(ellipse 60% 40% at 100% 0%, rgba(245, 158, 11, 0.08), transparent),
+      var(--color-paper);
+  }
+
+  * {
+    box-sizing: border-box;
+  }
+}
+
+@keyframes fade-up {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes gauge-fill {
+  from {
+    stroke-dashoffset: var(--gauge-circumference);
+  }
+}
+
+.animate-fade-up {
+  animation: fade-up 0.45s ease-out both;
+}
+
+.gauge-ring {
+  animation: gauge-fill 1s ease-out forwards;
+}
